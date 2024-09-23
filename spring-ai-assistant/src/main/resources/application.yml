@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: spring-rag-demo
+  ai:
+    azure:
+      openai:
+        api-key: XXXXX
+        endpoint: XXXXX
+        chat:
+          options:
+            deployment-name: gpt-4o
+#            responseFormat: JSON
+    vectorstore:
+      mongodb:
+        initialize-schema: true
+    gemini:
+      api-key: XXXX
+      model: text-embedding-004
+  data:
+    mongodb:
+      uri: XXXX
+      database: sample_vector_search
