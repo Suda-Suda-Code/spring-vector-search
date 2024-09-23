@@ -1,0 +1,7 @@
+{
+  "name": "ionic-chat-client",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

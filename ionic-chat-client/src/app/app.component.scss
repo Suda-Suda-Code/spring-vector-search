@@ -1,0 +1,197 @@
+ion-content{
+  background-color: #fafafa;;
+  font-family: 'Roboto', sans-serif; /* Apply Roboto font to the chat page */
+  font-size: 16px;
+}
+
+
+.chat-page {
+  font-family: 'Roboto', sans-serif; /* Apply Roboto font to the chat page */
+
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full height of the viewport */
+  background-color: #fafafa;
+  .restaurant-card {
+    margin: 15px 0;
+    ion-card {
+      padding: 0;
+    }
+
+    ion-card-header {
+      background-color: #f8f9fa;
+      padding: 15px;
+      position: relative; /* Make the header a positioned container */
+
+      .rating-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: #fc8019; /* Swiggy's Orange */
+        color: white;
+        padding: 5px 10px;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+
+    ion-card-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    ion-card-subtitle {
+      font-size: 14px;
+      color: #666;
+    }
+
+    ion-card-content {
+      padding: 15px;
+      font-size: 15px;
+    }
+
+    /* Other existing styles */
+  }
+
+
+
+
+  .chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto; /* Allows scrolling within the chat container */
+    //background-color: #fafafa; /* Light gray background for chat */
+    padding-bottom: 120px; /* Add some bottom padding */
+  }
+
+
+  .chat-bubble {
+    position: relative;
+    max-width: 100%;
+    //min-width: 70%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: white;
+    word-wrap: break-word;
+    display: inline-block;
+  }
+
+  .sent {
+    align-self: flex-end;
+    background-color: #fc8019; /* Swiggy's orange color for sent messages */
+    border-top-right-radius: 0; /* Remove top right corner rounding */
+
+    /* Tail on sent message */
+    &::after {
+      //content: '';
+      //position: absolute;
+      //right: -10px;
+      //top: 10px;
+      //width: 0;
+      //height: 0;
+      //border-left: 10px solid #fc8019;
+      //border-top: 10px solid transparent;
+      //border-bottom: 10px solid transparent;
+    }
+  }
+
+  .received {
+    align-self: flex-start;
+    background-color: #343a40; /* Dark gray color for received messages */
+    border-top-left-radius: 0; /* Remove top left corner rounding */
+
+    /* Tail on received message */
+    &::after {
+      //content: '';
+      //position: absolute;
+      //left: -10px;
+      //top: 10px;
+      //width: 0;
+      //height: 0;
+      //border-right: 10px solid #343a40;
+      //border-top: 10px solid transparent;
+      //border-bottom: 10px solid transparent;
+    }
+  }
+
+  .chat-input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #ffffff; /* White background for input area */
+    border-top: 1px solid #e0e0e0; /* Light gray border */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
+  }
+
+  ion-input {
+    flex: 1;
+    margin-right: 10px;
+    background-color: #f8f9fa; /* Light background for input */
+    border: 1px solid #e0e0e0; /* Border matching the input area */
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  ion-button {
+    width: auto;
+    background-color: #fc8019; /* Swiggy's orange for the button */
+    color: white;
+    font-weight: bold;
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+  }
+
+  .tag {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .thumb-icon {
+    margin-right: 5px;
+    color: #fc8019; /* Swiggy's orange color */
+  }
+
+
+
+  .special-dishes {
+    margin-bottom: 15px;
+
+    h4 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .dish-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .dish-icon {
+      font-size: 18px;
+      color: #fc8019; /* Swiggy's Orange */
+      margin-right: 10px;
+    }
+  }
+
+}

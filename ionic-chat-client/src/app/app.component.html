@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dwiggy</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="chat-page">
+  <div class="chat-container">
+    <!-- Chat bubbles for regular messages -->
+    <div *ngFor="let message of messages" [ngClass]="{'sent': message.isSent, 'received': !message.isSent}"
+         class="chat-bubble">
+      {{ message.text }}
+
+      <!-- Display restaurant list in cards when a reply contains restaurants -->
+      <div *ngIf="message.suggestionList && message.suggestionList.length > 0">
+        <div *ngFor="let restaurant of message.suggestionList" class="restaurant-card">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{ restaurant.name }}</ion-card-title>
+              <ion-card-subtitle>{{ restaurant.location }}</ion-card-subtitle>
+              <div class="rating-badge">
+                {{ restaurant.rating }} ⭐
+              </div>
+            </ion-card-header>
+
+            <ion-card-content>
+              <div *ngIf="restaurant.dishesToTry && restaurant.dishesToTry.length > 0" class="special-dishes">
+                <h4>Special Dishes</h4>
+                <div *ngFor="let dish of restaurant.dishesToTry" class="dish-item">
+                  <ion-icon name="star" class="dish-icon"></ion-icon>
+                  <span>{{ dish }}</span>
+                </div>
+              </div>
+              <div class="tags-container">
+                <div *ngFor="let tag of restaurant.tags" class="tag">
+
+                  <ion-icon name="thumbs-up" class="thumb-icon"></ion-icon> {{ tag }}
+                </div>
+              </div>
+              <p><strong>Customers say:</strong> {{ restaurant.aiSummary }}</p>
+            </ion-card-content>
+            <ion-button expand="block" color="primary" (click)="orderNow(restaurant)">
+              Order
+            </ion-button>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+    <div #messageEnd></div>
+
+  </div>
+
+  <div class="chat-input-container">
+    <ion-input [(ngModel)]="newMessage" (ngModelChange)="onMessageChange()"  placeholder="Type a message..."></ion-input>
+    <ion-button (click)="sendMessage()" [disabled]="!enableSend" expand="block" fill="solid">Send</ion-button>
+  </div>
+</ion-content>
